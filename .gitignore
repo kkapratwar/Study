@@ -7,3 +7,4 @@ bin/
 obj/
 /LearningProject/client/models
 /LearningProject/server/models
+*.user
