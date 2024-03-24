@@ -11,6 +11,7 @@ while (true)
     Console.WriteLine("3. Binary Tree");
     Console.WriteLine("4. Find Largest substring without repeatation");
     Console.WriteLine("5. Find Largest substring with repeatation");
+    Console.WriteLine("6. Add Two Numbers Linked List");
     Console.WriteLine("Press any other key to exit");
 
     int option = 0;
@@ -59,6 +60,7 @@ while (true)
         case 4:
             {
                 LargestSubstring largestSubstring = new LargestSubstring();
+                Console.WriteLine($"abcabcd: {largestSubstring.FindLargestSubstringWithoutRepeatation("abcabcd")}");
                 Console.WriteLine($"abcabcbb: {largestSubstring.FindLargestSubstringWithoutRepeatation("abcabcbb")}");
                 Console.WriteLine($"bbbbb: {largestSubstring.FindLargestSubstringWithoutRepeatation("bbbbb")}");
                 Console.WriteLine($"pwwkew: {largestSubstring.FindLargestSubstringWithoutRepeatation("pwwkew")}");
@@ -72,12 +74,59 @@ while (true)
                 Console.WriteLine($"pwwkew: {largestSubstring.FindLargestSubstringWithRepeatation("pwwkew")}");
             }
             break;
-        default:
-            break;
-    }
+        case 6:
+            {
+                AddTwoNumbersLinkedList addTwoNumbersLinkedList = new AddTwoNumbersLinkedList();
+                int[] l1Numbers = new[] { 9, 9, 9, 9, 9, 9, 9 };
+                int[] l2Numbers = new[] { 9, 9, 9, 9 };
+                ListNode l1 = null;
+                ListNode currentNode = null;
+                for (int i = 0; i < l1Numbers.Length; i++)
+                {
+                    var newNode = new ListNode(l1Numbers[i]);
+                    if (l1 == null)
+                    {
+                        l1 = newNode;
+                        currentNode = newNode;
+                    }
+                    else
+                    {
+                        currentNode.next = newNode;
+                        currentNode = currentNode.next;
+                    }
+                }
+                ListNode l2 = null;
+                currentNode = null;
+                for (int i = 0; i < l2Numbers.Length; i++)
+                {
+                    var newNode = new ListNode(l2Numbers[i]);
+                    if (l2 == null)
+                    {
+                        l2 = newNode;
+                        currentNode = newNode;
+                    }
+                    else
+                    {
+                        currentNode.next = newNode;
+                        currentNode = currentNode.next;
+                    }
+                }
 
-    if (option == 0)
-    {
-        break;
+                var result = addTwoNumbersLinkedList.AddTwoNumbers(l1, l2);
+                while (result != null)
+                {
+                    Console.Write(result.val);
+                    result = result.next;
+                }
+            }
+            break;
+        default:
+            {
+                if (option == 0)
+                {
+                    break;
+                }
+            }
+            break;
     }
 }
