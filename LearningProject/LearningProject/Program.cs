@@ -12,6 +12,7 @@ while (true)
     Console.WriteLine("4. Find Largest substring without repeatation");
     Console.WriteLine("5. Find Largest substring with repeatation");
     Console.WriteLine("6. Add Two Numbers Linked List");
+    Console.WriteLine("7. Reverse Integer");
     Console.WriteLine("Press any other key to exit");
 
     int option = 0;
@@ -118,6 +119,15 @@ while (true)
                     Console.Write(result.val);
                     result = result.next;
                 }
+            }
+            break;
+        case 7:
+            {
+                ReverseInteger reverseInteger = new ReverseInteger();
+                Console.WriteLine("Enter the number:");
+                var str = Console.ReadLine();
+                var result = reverseInteger.Reverse(Convert.ToInt32(str));
+                Console.WriteLine($"Reversed Integer = {result}");
             }
             break;
         default:
