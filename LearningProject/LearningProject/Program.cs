@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LearningProject.Algorightms;
 using LearningProject.DataStructures;
+using LearningProject.DesignPatterns.AbstractFactoryPattern;
 using LearningProject.DesignPatterns.FactoryPattern;
 using LearningProject.LeetCode;
 
@@ -176,8 +177,9 @@ static void DesignPatterns()
     while (option > 0)
     {
         Console.WriteLine("Hello, Select the option");
-        Console.WriteLine("1. FactoryPattern");
-        Console.WriteLine("Press any other key to exit");
+        Console.WriteLine("1. Factory Pattern");
+        Console.WriteLine("2. Abstract Factory Pattern");
+        Console.WriteLine("Press any other key for Main Menu");
 
         int.TryParse(Console.ReadLine(), out option);
 
@@ -190,6 +192,23 @@ static void DesignPatterns()
                     IVehicle vehicle = VehicleFactory.GetVehicle(str);
                     Console.WriteLine($"Type of Vehicle : {vehicle.VehicleType()}");
                     Console.WriteLine($"Number of Wheels for the vehicle : {vehicle.NumberOfWheels()}");
+                }
+                break;
+            case 2:
+                {
+                    Console.WriteLine($"Regular Vehicle Factory");
+                    IVehicleFactory regularVehicle = new RegularVehicleFactory();
+                    ICar regularCar = regularVehicle.CreateCar();
+                    regularCar.GetDetails();
+                    IBike regularBike = regularVehicle.CreateBike();
+                    regularBike.GetDetails();
+
+                    Console.WriteLine($"Sports Vehicle Factory");
+                    IVehicleFactory sportsVehicle = new SportsVehicleFactory();
+                    ICar sportsCar = sportsVehicle.CreateCar();
+                    sportsCar.GetDetails();
+                    IBike sportsBike = sportsVehicle.CreateBike();
+                    sportsBike.GetDetails();
                 }
                 break;
             default:
