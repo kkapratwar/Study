@@ -45,6 +45,8 @@ static void Algorithms()
         Console.WriteLine("5. Find Largest substring with repeatation");
         Console.WriteLine("6. Add Two Numbers Linked List");
         Console.WriteLine("7. Reverse Integer");
+        Console.WriteLine("8. Message Notification");
+        Console.WriteLine("9. First Missing Positive Number");
         Console.WriteLine("Press any other key to exit");
 
         int.TryParse(Console.ReadLine(), out option);
@@ -159,6 +161,30 @@ static void Algorithms()
                     var str = Console.ReadLine();
                     var result = reverseInteger.Reverse(Convert.ToInt32(str));
                     Console.WriteLine($"Reversed Integer = {result}");
+                }
+                break;
+            case 8:
+                {
+                    var msg = new MessageNotification();
+                    Console.WriteLine($"Message = abcd ; Length = 5 ; Output : {msg.solution("abcd", 5)}");
+                    Console.WriteLine($"Message = howareasrer ; Length = 3 ; Output : {msg.solution("howareasrer", 3)}");
+                    Console.WriteLine($"Message = And now here is my secret ; Length = 15 ; Output : {msg.solution("And now here is my secret", 15)}");
+                    Console.WriteLine($"Message = There is an animal with four legs ; Length = 15 ; Output : {msg.solution("There is an animal with four legs", 15)}");
+                    Console.WriteLine($"Message = super dog ; Length = 4 ; Output : {msg.solution("super dog", 4)}");
+                    Console.WriteLine($"Message = how are you ; Length = 20 ; Output : {msg.solution("how are you", 20)}");
+                }
+                break;
+            case 9:
+                {
+                    var positiveNumber = new FirstMissingPositiveNumber();
+
+                    int[] numbers = new int[] { 1, 2, 3, 4 };
+                    Console.WriteLine("Numbers = [1, 2, 3, 4]");
+                    Console.WriteLine($"First Missing Positive Number = {positiveNumber.FirstPositiveMissingNumber(numbers)}");
+
+                    numbers = new int[] { 1, 3, 6, 4, 1, 2 };
+                    Console.WriteLine("Numbers = [1, 3, 6, 4, 1, 2]");
+                    Console.WriteLine($"First Missing Positive Number = {positiveNumber.FirstPositiveMissingNumber(numbers)}"); ;
                 }
                 break;
             default:
