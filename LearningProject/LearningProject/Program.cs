@@ -47,6 +47,7 @@ static void Algorithms()
         Console.WriteLine("7. Reverse Integer");
         Console.WriteLine("8. Message Notification");
         Console.WriteLine("9. First Missing Positive Number");
+        Console.WriteLine("10. Count the blobs in the binary tree");
         Console.WriteLine("Press any other key to exit");
 
         int.TryParse(Console.ReadLine(), out option);
@@ -185,6 +186,14 @@ static void Algorithms()
                     numbers = new int[] { 1, 3, 6, 4, 1, 2 };
                     Console.WriteLine("Numbers = [1, 3, 6, 4, 1, 2]");
                     Console.WriteLine($"First Missing Positive Number = {positiveNumber.FirstPositiveMissingNumber(numbers)}"); ;
+                }
+                break;
+            case 10:
+                {
+                    CountBlobsInBinaryImage countBlobsInBinaryImage = new CountBlobsInBinaryImage();
+                    string[] grid = new string[] { "00010", "01101", "00111", "11010", "11000" };
+                    var count = countBlobsInBinaryImage.solution(grid, 1);
+                    Console.WriteLine($"Blob Count = {count}");
                 }
                 break;
             default:
