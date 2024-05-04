@@ -48,6 +48,8 @@ static void Algorithms()
         Console.WriteLine("8. Message Notification");
         Console.WriteLine("9. First Missing Positive Number");
         Console.WriteLine("10. Count the blobs in the binary tree");
+        Console.WriteLine("11. Happy Numbers");
+        Console.WriteLine("12. Remove Linked List Elements");
         Console.WriteLine("Press any other key to exit");
 
         int.TryParse(Console.ReadLine(), out option);
@@ -194,6 +196,50 @@ static void Algorithms()
                     string[] grid = new string[] { "00010", "01101", "00111", "11010", "11000" };
                     var count = countBlobsInBinaryImage.solution(grid, 1);
                     Console.WriteLine($"Blob Count = {count}");
+                }
+                break;
+            case 11:
+                {
+                    HappyNumber happyNumber = new HappyNumber();
+                    Console.WriteLine("Enter the number : ");
+                    int number = 0;
+                    int.TryParse(Console.ReadLine(), out number);
+                    Console.WriteLine($"Is number happy ({number}) - {happyNumber.IsHappy(number)}");
+                }
+                break;
+            case 12:
+                {
+                    RemoveLinkedListElements removeLinkedListElements = new RemoveLinkedListElements();
+                    //int[] l1Numbers = new[] { 1, 2, 6, 3, 4, 5, 6 };
+                    //int deleteNumber = 6;
+                    int[] l1Numbers = new[] { 1, 2, 2, 1 };
+                    int deleteNumber = 2;
+                    //int[] l1Numbers = new[] { 7, 7, 7, 7 };
+                    //int deleteNumber = 7;
+                    ListNode l1 = null;
+                    ListNode currentNode = null;
+                    for (int i = 0; i < l1Numbers.Length; i++)
+                    {
+                        var newNode = new ListNode(l1Numbers[i]);
+                        if (l1 == null)
+                        {
+                            l1 = newNode;
+                            currentNode = newNode;
+                        }
+                        else
+                        {
+                            currentNode.next = newNode;
+                            currentNode = currentNode.next;
+                        }
+                    }
+
+                    var result = removeLinkedListElements.RemoveElements(l1, deleteNumber);
+
+                    while (result != null)
+                    {
+                        Console.Write(result.val);
+                        result = result.next;
+                    }
                 }
                 break;
             default:
