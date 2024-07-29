@@ -1,8 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LearningProject.Algorightms;
 using LearningProject.DataStructures;
+using LearningProject.DataStructures.Graph;
 using LearningProject.DesignPatterns.AbstractFactoryPattern;
 using LearningProject.DesignPatterns.FactoryPattern;
+using LearningProject.DesignPatterns.StructuralPatterns;
 using LearningProject.LeetCode;
 
 while (true)
@@ -10,6 +12,8 @@ while (true)
     Console.WriteLine("Hello, Select the option");
     Console.WriteLine("1. Algorithms");
     Console.WriteLine("2. Design Patterns");
+    Console.WriteLine("3. Data Structure");
+    Console.WriteLine("4. Leet Code");
     Console.WriteLine("Press any other key to exit");
 
     int option = 0;
@@ -25,6 +29,16 @@ while (true)
         case 2:
             {
                 DesignPatterns();
+            }
+            break;
+        case 3:
+            {
+                DataStructure();
+            }
+            break;
+        case 4:
+            {
+                LeetCodeProblems();
             }
             break;
         default:
@@ -50,6 +64,7 @@ static void Algorithms()
         Console.WriteLine("10. Count the blobs in the binary tree");
         Console.WriteLine("11. Happy Numbers");
         Console.WriteLine("12. Remove Linked List Elements");
+        Console.WriteLine("13. Breadth First Search");
         Console.WriteLine("Press any other key to exit");
 
         int.TryParse(Console.ReadLine(), out option);
@@ -242,6 +257,25 @@ static void Algorithms()
                     }
                 }
                 break;
+            case 13:
+                {
+                    //BreadthFirstSearch bfs = new BreadthFirstSearch();
+                    //bfs.BFSRun();
+
+                    //DepthFirstSearch dfs = new DepthFirstSearch();
+                    //dfs.DFSTraversal();
+
+                    //FloodFill floodFill = new FloodFill();
+
+                    CourseSchedule courseSchedule = new CourseSchedule();   
+
+                    //CountPrimes countPrimes = new CountPrimes();
+                    //Console.WriteLine("Enter the number : ");
+                    //int number = 0;
+                    //int.TryParse(Console.ReadLine(), out number);
+                    //Console.WriteLine($"Number of prime numbers till {number} = {countPrimes.CountPrimeNumbers(number)}");
+                }
+                break;
             default:
                 {
                     option = 0;
@@ -260,6 +294,7 @@ static void DesignPatterns()
         Console.WriteLine("Hello, Select the option");
         Console.WriteLine("1. Factory Pattern");
         Console.WriteLine("2. Abstract Factory Pattern");
+        Console.WriteLine("3. Decorator Pattern (Structural Pattern)");
         Console.WriteLine("Press any other key for Main Menu");
 
         int.TryParse(Console.ReadLine(), out option);
@@ -292,6 +327,11 @@ static void DesignPatterns()
                     sportsBike.GetDetails();
                 }
                 break;
+            case 3:
+                {
+                    new DecoratorPattern();
+                }
+                break;
             default:
                 {
                     option = 0;
@@ -301,4 +341,83 @@ static void DesignPatterns()
     }
 }
 
+static void DataStructure()
+{
+    int option = 9999;
+
+    while (option > 0)
+    {
+        Console.WriteLine("Hello, Select the option");
+        Console.WriteLine("1. BFS");
+        Console.WriteLine("2. DFS");
+        Console.WriteLine("Press any other key for Main Menu");
+
+        int.TryParse(Console.ReadLine(), out option);
+
+        switch (option)
+        {
+            case 1:
+                {
+                    new BreadthFirstSearch();
+                }
+                break;
+            case 2:
+                {
+                    new DepthFirstSearch();
+                }
+                break;
+            default:
+                {
+                    option = 0;
+                }
+                break;
+        }
+    }
+}
+
+static void LeetCodeProblems()
+{
+    int option = 9999;
+
+    while (option > 0)
+    {
+        Console.WriteLine("Hello, Select the option");
+        Console.WriteLine("1. CountPrimes");
+        Console.WriteLine("2. CourseSchedule");
+        Console.WriteLine("3. Flood Fill");
+        Console.WriteLine("4. Remove Element");
+        Console.WriteLine("Press any other key for Main Menu");
+
+        int.TryParse(Console.ReadLine(), out option);
+
+        switch (option)
+        {
+            case 1:
+                {
+                    new CountPrimes();
+                }
+                break;
+            case 2:
+                {
+                    new CourseSchedule();
+                }
+                break;
+            case 3:
+                {
+                    new FloodFill();
+                }
+                break;
+            case 4:
+                {
+                    new RemoveElement();
+                }
+                break;
+            default:
+                {
+                    option = 0;
+                }
+                break;
+        }
+    }
+}
 
